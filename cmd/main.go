@@ -1,22 +1,22 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"net/http"
 
 	"github.com/mjuni.dev/go-web/internal/core/server"
-	"github.com/mjuni.dev/go-web/internal/core/server/interfaces"
+	"github.com/mjuni.dev/go-web/internal/features/auth"
 )
 
 func main() {
 	f := server.New()
 	s := f.EchoServer()
 	// s := f.GinServer()
-	r := s.Router()
-	r.GET("/", func(c interfaces.Context) error {
-		fmt.Printf(" >> GET\n")
-		return c.String(http.StatusOK, "Hello, world!\n")
-	})
+	// r := s.Router()
+
+	initializeModules()
 	log.Fatal(s.Start(":3000"))
+}
+
+func initializeModules() {
+	auth.New().Initialize()
 }

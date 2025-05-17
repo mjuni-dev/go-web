@@ -2,14 +2,14 @@ package gin
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mjuni.dev/go-web/internal/core/server/interfaces"
+	"github.com/mjuni.dev/go-web/internal/core/server/server"
 )
 
 type Router struct {
 	gin *gin.Engine
 }
 
-func (r *Router) GET(path string, handler interfaces.HandlerFunc, middlewares ...interfaces.MiddlewareFunc) {
+func (r *Router) GET(path string, handler server.HandlerFunc, middlewares ...server.MiddlewareFunc) {
 	ginHandler := func(c *gin.Context) {
 		err := handler(&Context{ctx: c})
 		if err != nil {
@@ -22,7 +22,7 @@ func (r *Router) GET(path string, handler interfaces.HandlerFunc, middlewares ..
 	// })
 }
 
-func (r *Router) convertMiddlewares(middlewares ...interfaces.MiddlewareFunc) []gin.HandlerFunc {
+func (r *Router) convertMiddlewares(middlewares ...server.MiddlewareFunc) []gin.HandlerFunc {
 	ginMiddlewares := make([]gin.HandlerFunc, len(middlewares))
 
 	return ginMiddlewares

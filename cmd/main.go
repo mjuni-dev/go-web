@@ -1,16 +1,22 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 
-	"github.com/labstack/echo/v4"
+	"github.com/mjuni.dev/go-web/internal/core/server"
+	"github.com/mjuni.dev/go-web/internal/core/server/interfaces"
 )
 
 func main() {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, test!\n")
+	f := server.New()
+	s := f.EchoServer()
+	// s := f.GinServer()
+	r := s.Router()
+	r.GET("/", func(c interfaces.Context) error {
+		fmt.Printf(" >> GET\n")
+		return c.String(http.StatusOK, "Hello, world!\n")
 	})
-
-	e.Logger.Fatal(e.Start(":8080"))
+	log.Fatal(s.Start(":3000"))
 }

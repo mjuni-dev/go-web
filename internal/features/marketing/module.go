@@ -7,7 +7,10 @@ import (
 )
 
 type Module struct {
-	config *module.Config
+	config     *module.Config
+	repository Repository
+	service    *Service
+	handler    *Handler
 }
 
 func New(c *module.Config) *Module {
@@ -18,5 +21,9 @@ func New(c *module.Config) *Module {
 
 func (m *Module) Initialize() error {
 	fmt.Println("Initializing marketing feature...")
+	m.repository = NewRepository()
+	m.service = NewService(m.repository)
+	m.handler = NewHandler(m.service)
+
 	return nil
 }

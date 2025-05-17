@@ -1,9 +1,5 @@
 package interfaces
 
-import (
-	"time"
-)
-
 type Server interface {
 	Start(address string) error
 	Router() Router
@@ -14,13 +10,13 @@ type Router interface {
 }
 
 type Context interface {
-	Err() error
+	// Err() error
 	String(code int, s string) error
 
-	Value(key any) any
+	// Value(key any) any
 
-	Deadline() (t time.Time, ok bool)
-	Done() <-chan struct{}
+	// Deadline() (t time.Time, ok bool)
+	// Done() <-chan struct{}
 }
 
 type HandlerFunc func(ctx Context) error

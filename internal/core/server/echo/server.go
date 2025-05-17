@@ -10,8 +10,10 @@ type Server struct {
 }
 
 func New() *Server {
+	e := echo.New()
+	e.HideBanner = true
 	return &Server{
-		engine: echo.New(),
+		engine: e,
 	}
 }
 

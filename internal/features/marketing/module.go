@@ -1,4 +1,4 @@
-package auth
+package marketing
 
 import (
 	"fmt"
@@ -17,6 +17,6 @@ func New(c *module.Config) *Module {
 }
 
 func (m *Module) Initialize() error {
-	fmt.Println("Initializing auth feature...")
+	fmt.Println("Initializing marketing feature...")
 	return nil
 }

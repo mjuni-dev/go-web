@@ -8,7 +8,7 @@ import (
 
 type ServerFactory struct{}
 
-func New() *ServerFactory {
+func NewServerFactory() *ServerFactory {
 	return &ServerFactory{}
 }
 

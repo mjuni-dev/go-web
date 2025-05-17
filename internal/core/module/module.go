@@ -2,7 +2,11 @@ package module
 
 import "github.com/mjuni.dev/go-web/internal/core/server/server"
 
-type Config struct{}
+type Config struct {
+	ConnectionString string
+	// Logger
+	// Email/Notification Service
+}
 
 type Module interface {
 	Initialize() error

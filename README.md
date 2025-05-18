@@ -15,3 +15,4 @@ https://templ.guide/
 
 # tailwindcss
 https://tailwindcss.com/
+standalone executable is too large to push to github.  will have to download it

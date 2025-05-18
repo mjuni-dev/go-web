@@ -1,0 +1,49 @@
+package layouts
+
+templ Layout() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Title</title>
+			<link href="/public/css/styles.css" rel="stylesheet" />
+		</head>
+		<body>
+		<svg viewBox="0 0 144 30" class="h-7">
+			<!-- Go gopher lines - rearranged with longest in middle -->
+			<g id="go-lines">
+				<path d="M10,5 25,5" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Medium on top -->
+				<path d="M8,9 L23,9" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Longest in middle -->
+				<path d="M12,13 23,13" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Shortest on bottom -->
+			</g>
+			
+			<!-- Using tspan to have more control over character spacing -->
+			<text font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" y="24">
+				<!-- "Go" with the specified color -->
+				<tspan x="24" fill="#79d4fd" letter-spacing="-1">Go</tspan>
+				
+				<!-- "Web" with dynamic color, positioned closer to "Go" -->
+				<tspan x="61" fill="currentColor" letter-spacing="-1">Web</tspan>
+			</text>
+			
+			<style>
+				/* For light mode (default) */
+				text tspan:last-child {
+				fill: #000000;
+				}
+				
+				/* For dark mode - this will be applied when parent has dark-mode class */
+				:host(.dark-mode) text tspan:last-child,
+				.dark-mode text tspan:last-child {
+				fill: #ffffff;
+				}
+			</style>
+			</svg>
+            <h1 class="text-red-900">Layout File</h1>
+            <div>
+                { children...}
+            </div>
+        </body>
+	</html>
+}

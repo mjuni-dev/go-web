@@ -3,6 +3,7 @@ package marketing
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
+	"github.com/mjuni.dev/go-web/web/features/marketing/pricing"
 )
 
 const MOD_WEB_MARKETING string = "WEB.MARKETING"
@@ -24,6 +25,6 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) Initialize() error {
-
+	m.registry.Register(pricing.New(m.router))
 	return nil
 }

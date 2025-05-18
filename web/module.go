@@ -3,7 +3,7 @@ package web
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/marketing/pricing"
+	"github.com/mjuni.dev/go-web/web/features/marketing"
 )
 
 const MOD_WEB string = "WEB"
@@ -25,7 +25,7 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) Initialize() error {
-	m.registry.Register(pricing.New(m.router))
+	m.registry.Register(marketing.New(m.registry, m.router))
 
 	return nil
 }

@@ -12,3 +12,6 @@ https://echo.labstack.com/
 
 # templ
 https://templ.guide/
+
+# tailwindcss
+https://tailwindcss.com/

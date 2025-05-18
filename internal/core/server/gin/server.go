@@ -11,6 +11,7 @@ type Server struct {
 
 func New() *Server {
 	e := gin.Default()
+	e.Static("/public", "./web/public")
 	return &Server{
 		engine: e,
 	}

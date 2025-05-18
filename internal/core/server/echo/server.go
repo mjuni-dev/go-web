@@ -12,6 +12,7 @@ type Server struct {
 func New() *Server {
 	e := echo.New()
 	e.HideBanner = true
+	e.Static("/public", "public")
 	return &Server{
 		engine: e,
 	}

@@ -3,6 +3,7 @@ package web
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
+	"github.com/mjuni.dev/go-web/web/features/auth"
 	"github.com/mjuni.dev/go-web/web/features/marketing"
 )
 
@@ -25,6 +26,7 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) Initialize() error {
+	m.registry.Register(auth.New())
 	m.registry.Register(marketing.New(m.registry, m.router))
 
 	return nil

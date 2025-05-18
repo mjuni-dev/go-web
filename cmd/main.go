@@ -6,8 +6,7 @@ import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	factory "github.com/mjuni.dev/go-web/internal/core/server"
 	server "github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/internal/features/auth"
-	"github.com/mjuni.dev/go-web/internal/features/marketing"
+	"github.com/mjuni.dev/go-web/internal/features"
 	"github.com/mjuni.dev/go-web/web"
 )
 
@@ -28,12 +27,9 @@ func initializeFeatureModules(r *module.Registry) {
 	c := module.Config{
 		ConnectionString: "",
 	}
-
-	r.Register(auth.New(&c, r))
-	r.Register(marketing.New(&c, r))
+	r.Register(features.New(&c, r))
 }
 
 func initializeWebModules(registry *module.Registry, router server.Router) {
-
 	registry.Register(web.New(registry, router))
 }

@@ -1,6 +1,6 @@
 package pricing
 
-const FEATURE_MARKETING_PRICING string = "FEATURE.MARKETING"
+const FEATURE_MARKETING_PRICING string = "FEATURE.MARKETING.PRICING"
 
 type Module struct {
 }

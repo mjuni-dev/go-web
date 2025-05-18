@@ -1,4 +1,4 @@
-package server
+package factory
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/server/echo"

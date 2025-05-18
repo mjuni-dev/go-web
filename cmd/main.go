@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/mjuni.dev/go-web/internal/core/module"
-	factory "github.com/mjuni.dev/go-web/internal/core/server"
-	server "github.com/mjuni.dev/go-web/internal/core/server/server"
+	"github.com/mjuni.dev/go-web/internal/core/server/factory"
+	"github.com/mjuni.dev/go-web/internal/core/server/server"
 	"github.com/mjuni.dev/go-web/internal/features"
 	"github.com/mjuni.dev/go-web/web"
 )

@@ -29,9 +29,4 @@ func (m *Module) Name() string {
 
 func (m *Module) handleGetPricing(c server.Context) error {
 	return utils.Render(c, 200, templates.PricingTiers())
-	// buf := templ.GetBuffer()
-	// defer templ.ReleaseBuffer(buf)
-	// component := templates.PricingTiers()
-	// component.Render(c.Ctx(), buf)
-	// return c.HTML(200, buf.String())
 }

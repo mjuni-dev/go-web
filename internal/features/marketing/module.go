@@ -4,26 +4,30 @@ import (
 	"fmt"
 
 	"github.com/mjuni.dev/go-web/internal/core/module"
+	"github.com/mjuni.dev/go-web/internal/features/marketing/pricing"
 )
 
 type Module struct {
-	config     *module.Config
-	repository Repository
-	service    *Service
-	handler    *Handler
+	config   *module.Config
+	registry *module.Registry
+	// repository Repository
+	// service    *Service
+	// handler    *Handler
 }
 
-func New(c *module.Config) *Module {
+func New(c *module.Config, r *module.Registry) *Module {
 	return &Module{
-		config: c,
+		config:   c,
+		registry: r,
 	}
 }
 
 func (m *Module) Initialize() error {
-	fmt.Println("Initializing marketing feature...")
-	m.repository = NewRepository()
-	m.service = NewService(m.repository)
-	m.handler = NewHandler(m.service)
+	fmt.Println(" >> Initializing MARKETING feature...")
+	m.registry.Register(pricing.New())
+	// m.repository = NewRepository()
+	// m.service = NewService(m.repository)
+	// m.handler = NewHandler(m.service)
 
 	return nil
 }

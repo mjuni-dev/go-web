@@ -7,16 +7,18 @@ import (
 )
 
 type Module struct {
-	config *module.Config
+	config   *module.Config
+	registry *module.Registry
 }
 
-func New(c *module.Config) *Module {
+func New(c *module.Config, r *module.Registry) *Module {
 	return &Module{
-		config: c,
+		config:   c,
+		registry: r,
 	}
 }
 
 func (m *Module) Initialize() error {
-	fmt.Println("Initializing auth feature...")
+	fmt.Println(" >> Initializing AUTH feature...")
 	return nil
 }

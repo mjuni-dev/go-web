@@ -1,4 +1,4 @@
-package marketing
+package pricing
 
 type PricingTier struct {
 	Name        string

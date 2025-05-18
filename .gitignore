@@ -7,11 +7,13 @@
 # Ignore everything
 *
 
+
 # But not these files...
 !/.gitignore
 !/.air.toml
 
 !*.go
+!*.templ
 !go.sum
 !go.mod
 
@@ -22,3 +24,6 @@
 
 # ...even if they are in subdirectories
 !*/
+
+# Ignore _templ.go generated files
+*_templ.go

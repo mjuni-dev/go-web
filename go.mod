@@ -3,13 +3,13 @@ module github.com/mjuni.dev/go-web
 go 1.24.3
 
 require (
+	github.com/a-h/templ v0.3.865
 	github.com/gin-gonic/gin v1.10.0
 	github.com/labstack/echo/v4 v4.13.3
 )
 
 require (
 	github.com/a-h/parse v0.0.0-20250122154542-74294addb73e // indirect
-	github.com/a-h/templ v0.3.865 // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect

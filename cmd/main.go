@@ -4,28 +4,36 @@ import (
 	"log"
 
 	"github.com/mjuni.dev/go-web/internal/core/module"
-	"github.com/mjuni.dev/go-web/internal/core/server"
+	factory "github.com/mjuni.dev/go-web/internal/core/server"
+	server "github.com/mjuni.dev/go-web/internal/core/server/server"
 	"github.com/mjuni.dev/go-web/internal/features/auth"
 	"github.com/mjuni.dev/go-web/internal/features/marketing"
+	"github.com/mjuni.dev/go-web/web"
 )
 
 func main() {
-	f := server.NewServerFactory()
+	f := factory.NewServerFactory()
 	s := f.EchoServer()
 	// s := f.GinServer()
-	// r := s.Router()
+	router := s.Router()
 
-	initializeModules()
+	registry := module.NewRegistry()
+	initializeFeatureModules(registry)
+	initializeWebModules(registry, router)
 
 	log.Fatal(s.Start(":8080"))
 }
 
-func initializeModules() {
+func initializeFeatureModules(r *module.Registry) {
 	c := module.Config{
 		ConnectionString: "",
 	}
-	r := module.NewRegistry()
 
-	r.Register(auth.New(&c))
-	r.Register(marketing.New(&c))
+	r.Register(auth.New(&c, r))
+	r.Register(marketing.New(&c, r))
+}
+
+func initializeWebModules(registry *module.Registry, router server.Router) {
+
+	registry.Register(web.New(registry, router))
 }

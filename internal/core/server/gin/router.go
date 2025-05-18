@@ -10,16 +10,9 @@ type Router struct {
 }
 
 func (r *Router) GET(path string, handler server.HandlerFunc, middlewares ...server.MiddlewareFunc) {
-	ginHandler := func(c *gin.Context) {
-		err := handler(&Context{ctx: c})
-		if err != nil {
-		}
-	}
-	ginMiddlewares := r.convertMiddlewares(middlewares...)
-	r.gin.GET(path, append(ginMiddlewares, ginHandler)...)
-	// r.gin.GET(path, func(c *gin.Context) {
-	// 	handler(&Context{ctx: c})
-	// })
+	r.gin.GET(path, func(c *gin.Context) {
+		handler(&Context{ctx: c})
+	})
 }
 
 func (r *Router) convertMiddlewares(middlewares ...server.MiddlewareFunc) []gin.HandlerFunc {

@@ -7,5 +7,6 @@ type Config struct {
 }
 
 type Module interface {
+	Name() string
 	Initialize() error
 }

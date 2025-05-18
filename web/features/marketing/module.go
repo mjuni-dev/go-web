@@ -1,12 +1,11 @@
-package web
+package marketing
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/marketing/pricing"
 )
 
-const MOD_WEB string = "WEB"
+const MOD_WEB_MARKETING string = "WEB.MARKETING"
 
 type Module struct {
 	registry *module.Registry
@@ -21,11 +20,10 @@ func New(registry *module.Registry, router server.Router) *Module {
 }
 
 func (m *Module) Name() string {
-	return MOD_WEB
+	return MOD_WEB_MARKETING
 }
 
 func (m *Module) Initialize() error {
-	m.registry.Register(pricing.New(m.router))
 
 	return nil
 }

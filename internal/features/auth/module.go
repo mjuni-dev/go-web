@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"fmt"
-
 	"github.com/mjuni.dev/go-web/internal/core/module"
 )
+
+const FEATURE_AUTH string = "FEATURE.AUTH"
 
 type Module struct {
 	config   *module.Config
@@ -17,8 +17,10 @@ func New(c *module.Config, r *module.Registry) *Module {
 		registry: r,
 	}
 }
+func (m *Module) Name() string {
+	return FEATURE_AUTH
+}
 
 func (m *Module) Initialize() error {
-	fmt.Println(" >> Initializing AUTH feature...")
 	return nil
 }

@@ -33,7 +33,7 @@ func (c *Context) String(code int, s string) error {
 }
 
 func (c *Context) HTML(code int, html string) error {
-	c.ctx.Header("Content-Type", "text/html")
+	c.ctx.Header("Content-Type", "text/html; charset=UTF-8")
 	c.ctx.String(code, html)
 	return nil
 }

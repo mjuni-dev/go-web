@@ -1,5 +1,7 @@
 package module
 
+import "fmt"
+
 type Registry struct{}
 
 func NewRegistry() *Registry {
@@ -7,5 +9,6 @@ func NewRegistry() *Registry {
 }
 
 func (r *Registry) Register(m Module) error {
+	fmt.Printf(" >> Initializing %s...\n", m.Name())
 	return m.Initialize()
 }

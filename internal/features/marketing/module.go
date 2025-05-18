@@ -1,11 +1,11 @@
 package marketing
 
 import (
-	"fmt"
-
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/features/marketing/pricing"
 )
+
+const FEATURE_MARKETING string = "FEATURE.MARKETING"
 
 type Module struct {
 	config   *module.Config
@@ -22,8 +22,11 @@ func New(c *module.Config, r *module.Registry) *Module {
 	}
 }
 
+func (m *Module) Name() string {
+	return FEATURE_MARKETING
+}
+
 func (m *Module) Initialize() error {
-	fmt.Println(" >> Initializing MARKETING feature...")
 	m.registry.Register(pricing.New())
 	// m.repository = NewRepository()
 	// m.service = NewService(m.repository)

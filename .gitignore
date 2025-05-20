@@ -18,8 +18,7 @@
 !go.sum
 !go.mod
 
-# tailwind css
-
+!*.js
 
 !README.md
 !LICENSE

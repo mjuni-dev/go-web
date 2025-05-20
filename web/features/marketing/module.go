@@ -3,6 +3,8 @@ package marketing
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
+	"github.com/mjuni.dev/go-web/web/features/marketing/about"
+	"github.com/mjuni.dev/go-web/web/features/marketing/landing"
 	"github.com/mjuni.dev/go-web/web/features/marketing/pricing"
 )
 
@@ -25,6 +27,8 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) Initialize() error {
+	m.registry.Register(landing.New(m.router))
+	m.registry.Register(about.New(m.router))
 	m.registry.Register(pricing.New(m.router))
 	return nil
 }

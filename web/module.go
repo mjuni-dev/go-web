@@ -26,7 +26,7 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) Initialize() error {
-	m.registry.Register(auth.New())
+	m.registry.Register(auth.New(m.registry, m.router))
 	m.registry.Register(marketing.New(m.registry, m.router))
 
 	return nil

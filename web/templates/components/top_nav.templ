@@ -1,51 +1,48 @@
 package components
 
 templ TopNav() {
-    <div class="fixed inset-x-0 top-0 z-10 border-b border-gray-950/5">
-        <div class="bg-white">
-            <div class="px-6 h-14 flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <a class="shrink-0" href="/">
-                        <svg viewBox="0 0 144 30" class="h-7">
-                            <!-- Go gopher lines - rearranged with longest in middle -->
-                            <g id="go-lines">
-                                <path d="M10,5 25,5" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Medium on top -->
-                                <path d="M8,9 L23,9" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Longest in middle -->
-                                <path d="M12,13 23,13" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"/>  <!-- Shortest on bottom -->
-                            </g>
-                            
-                            <!-- Using tspan to have more control over character spacing -->
-                            <text font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" y="24">
-                                <!-- "Go" with the specified color -->
-                                <tspan x="24" fill="#79d4fd" letter-spacing="-1">Go</tspan>
-                                
-                                <!-- "Web" with dynamic color, positioned closer to "Go" -->
-                                <tspan x="61" fill="currentColor" letter-spacing="-1">Web</tspan>
-                            </text>
-                            
-                            <style>
-                                /* For light mode (default) */
-                                text tspan:last-child {
-                                fill: #000000;
-                                }
-                                
-                                /* For dark mode - this will be applied when parent has dark-mode class */
-                                :host(.dark-mode) text tspan:last-child,
-                                .dark-mode text tspan:last-child {
-                                fill: #ffffff;
-                                }
-                            </style>
-                        </svg>
-                    </a>
-                </div>
-                <div class="flex items-center gap-6">
-                    <a href="/" class="text-sm/6 text-gray-950">Home1</a>
-                    <a href="/about" class="text-sm/6 text-gray-950">About</a>
-                    <a href="/pricing" class="text-sm/6 text-gray-950">Pricing</a>
-                    <a href="/auth/signin" class="text-sm/6 text-gray-950">Sign In</a>
-                    <a href="/auth/register" class="text-sm/6 text-gray-950">Register</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="fixed inset-x-0 top-0 z-10 border-b border-gray-950/5">
+		<div class="bg-white">
+			<div class="px-6 h-14 flex items-center justify-between">
+				<div class="flex items-center gap-4">
+					<a class="shrink-0" href="/">
+						<svg viewBox="0 0 144 30" class="h-7">
+							<!-- Go gopher lines - rearranged with longest in middle -->
+							<g id="go-lines">
+								<path d="M10,5 25,5" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"></path> <!-- Medium on top -->
+								<path d="M8,9 L23,9" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"></path> <!-- Longest in middle -->
+								<path d="M12,13 23,13" stroke="#79d4fd" stroke-width="2" stroke-linecap="round"></path> <!-- Shortest on bottom -->
+							</g>
+							<!-- Using tspan to have more control over character spacing -->
+							<text font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="bold" y="24">
+								<!-- "Go" with the specified color -->
+								<tspan x="24" fill="#79d4fd" letter-spacing="-1">Go</tspan>
+								<!-- "Web" with dynamic color, positioned closer to "Go" -->
+								<tspan x="61" fill="currentColor" letter-spacing="-1">Web</tspan>
+							</text>
+							<style>
+                /* For light mode (default) */
+                text tspan:last-child {
+                    fill: #000000;
+                }
+
+                /* For dark mode - this will be applied when parent has dark-mode class */
+                :host(.dark-mode) text tspan:last-child,
+                .dark-mode text tspan:last-child {
+                    fill: #ffffff;
+                }
+                </style>
+						</svg>
+					</a>
+				</div>
+				<div class="flex items-center gap-6">
+					<a href="/" class="text-sm/6 text-gray-950">Home1</a>
+					<a href="/about" class="text-sm/6 text-gray-950">About</a>
+					<a href="/pricing" class="text-sm/6 text-gray-950">Pricing</a>
+					<a href="/auth/signin" class="text-sm/6 text-gray-950">Sign In</a>
+					<a href="/auth/register" class="text-sm/6 text-gray-950">Register</a>
+				</div>
+			</div>
+		</div>
+	</div>
 }

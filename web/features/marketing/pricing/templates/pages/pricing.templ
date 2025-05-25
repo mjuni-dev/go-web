@@ -4,9 +4,8 @@ import "github.com/mjuni.dev/go-web/web/templates/layouts"
 import "github.com/mjuni.dev/go-web/web/features/marketing/pricing/templates/components"
 
 templ Pricing() {
-    @layouts.Layout() {
-        <h1>Pricing Page</h1>
-        @components.PricingTiers()
-    }
-    
+	@layouts.Layout() {
+		<h1>Pricing Page</h1>
+		@components.PricingTiers()
+	}
 }

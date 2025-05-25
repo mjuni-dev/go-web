@@ -12,8 +12,8 @@ import (
 
 func main() {
 	f := factory.NewServerFactory()
-	s := f.EchoServer()
-	// s := f.GinServer()
+	// s := f.EchoServer()
+	s := f.GinServer()
 	router := s.Router()
 
 	registry := module.NewRegistry()

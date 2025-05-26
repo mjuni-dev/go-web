@@ -10,3 +10,6 @@ templ:
 
 server:
 	air
+
+sqlc:
+	go tool sqlc generate

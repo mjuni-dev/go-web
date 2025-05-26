@@ -2,7 +2,7 @@ package marketing
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
-	"github.com/mjuni.dev/go-web/internal/features/marketing/pricing"
+	"github.com/mjuni.dev/go-web/internal/feature/marketing/pricing"
 )
 
 const FEATURE_MARKETING string = "FEATURE.MARKETING"

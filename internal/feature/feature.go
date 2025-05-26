@@ -1,9 +1,9 @@
-package features
+package feature
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
-	"github.com/mjuni.dev/go-web/internal/features/auth"
-	"github.com/mjuni.dev/go-web/internal/features/marketing"
+	"github.com/mjuni.dev/go-web/internal/feature/auth"
+	"github.com/mjuni.dev/go-web/internal/feature/marketing"
 )
 
 const MOD_FEATURE string = "FEATURE"

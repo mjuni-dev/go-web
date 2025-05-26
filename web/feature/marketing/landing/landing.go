@@ -1,12 +1,12 @@
-package pricing
+package landing
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/marketing/pricing/templates/pages"
+	"github.com/mjuni.dev/go-web/web/feature/marketing/landing/templates/pages"
 	"github.com/mjuni.dev/go-web/web/utils"
 )
 
-const MOD_WEB_MARKETING_PRICING string = "WEB.MARKETING.PRICING"
+const MOD_WEB_MARKETING string = "WEB.MARKETING.LANDING"
 
 type Module struct {
 	router server.Router
@@ -19,14 +19,14 @@ func New(r server.Router) *Module {
 }
 
 func (m *Module) Initialize() error {
-	m.router.GET("/pricing", m.handleGetPricing)
+	m.router.GET("/", m.handleGetPricing)
 	return nil
 }
 
 func (m *Module) Name() string {
-	return MOD_WEB_MARKETING_PRICING
+	return MOD_WEB_MARKETING
 }
 
 func (m *Module) handleGetPricing(c server.Context) error {
-	return utils.Render(c, 200, pages.Pricing())
+	return utils.Render(c, 200, pages.Landing())
 }

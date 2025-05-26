@@ -6,14 +6,14 @@ import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/factory"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/internal/features"
+	"github.com/mjuni.dev/go-web/internal/feature"
 	"github.com/mjuni.dev/go-web/web"
 )
 
 func main() {
 	f := factory.NewServerFactory()
-	// s := f.EchoServer()
-	s := f.GinServer()
+	s := f.EchoServer()
+	// s := f.GinServer()
 	router := s.Router()
 
 	registry := module.NewRegistry()
@@ -27,7 +27,7 @@ func initializeFeatureModules(r *module.Registry) {
 	c := module.Config{
 		ConnectionString: "",
 	}
-	r.Register(features.New(&c, r))
+	r.Register(feature.New(&c, r))
 }
 
 func initializeWebModules(registry *module.Registry, router server.Router) {

@@ -2,7 +2,7 @@ package about
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/marketing/about/templates/pages"
+	"github.com/mjuni.dev/go-web/web/feature/marketing/about/templates/pages"
 	"github.com/mjuni.dev/go-web/web/utils"
 )
 

@@ -1,12 +1,12 @@
-package signin
+package register
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/auth/signin/templates/pages"
+	"github.com/mjuni.dev/go-web/web/feature/auth/register/templates/pages"
 	"github.com/mjuni.dev/go-web/web/utils"
 )
 
-const MOD_WEB_MARKETING string = "WEB.AUTH.SIGNIN"
+const MOD_WEB_MARKETING string = "WEB.AUTH.REGISTER"
 
 type Module struct {
 	router server.Router
@@ -19,7 +19,7 @@ func New(r server.Router) *Module {
 }
 
 func (m *Module) Initialize() error {
-	m.router.GET("/auth/signin", m.handleGetAbout)
+	m.router.GET("/auth/register", m.handleGetAbout)
 	return nil
 }
 
@@ -28,5 +28,5 @@ func (m *Module) Name() string {
 }
 
 func (m *Module) handleGetAbout(c server.Context) error {
-	return utils.Render(c, 200, pages.SignIn())
+	return utils.Render(c, 200, pages.Register())
 }

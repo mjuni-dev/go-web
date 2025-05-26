@@ -1,14 +1,13 @@
-package marketing
+package auth
 
 import (
 	"github.com/mjuni.dev/go-web/internal/core/module"
 	"github.com/mjuni.dev/go-web/internal/core/server/server"
-	"github.com/mjuni.dev/go-web/web/features/marketing/about"
-	"github.com/mjuni.dev/go-web/web/features/marketing/landing"
-	"github.com/mjuni.dev/go-web/web/features/marketing/pricing"
+	"github.com/mjuni.dev/go-web/web/feature/auth/register"
+	"github.com/mjuni.dev/go-web/web/feature/auth/signin"
 )
 
-const MOD_WEB_MARKETING string = "WEB.MARKETING"
+const MOD_WEB_AUTH string = "WEB.AUTH"
 
 type Module struct {
 	registry *module.Registry
@@ -23,12 +22,11 @@ func New(registry *module.Registry, router server.Router) *Module {
 }
 
 func (m *Module) Name() string {
-	return MOD_WEB_MARKETING
+	return MOD_WEB_AUTH
 }
 
 func (m *Module) Initialize() error {
-	m.registry.Register(landing.New(m.router))
-	m.registry.Register(about.New(m.router))
-	m.registry.Register(pricing.New(m.router))
+	m.registry.Register(signin.New(m.router))
+	m.registry.Register(register.New(m.router))
 	return nil
 }

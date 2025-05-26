@@ -1,0 +1,18 @@
+version: "2"
+sql:
+  - schema: "schema1.sql"
+    engine: "postgresql"
+    queries: "query1.sql"
+    gen:
+      go:
+        package: "test1"
+        out: "test1"
+        sql_package: "pgx/v5"
+  - schema: "schema2.sql"
+    engine: "postgresql"
+    queries: "query2.sql"
+    gen:
+      go:
+        package: "test2"
+        out: "test2"
+        sql_package: "pgx/v5"

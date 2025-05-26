@@ -12,4 +12,4 @@ server:
 	air
 
 sqlc:
-	go tool sqlc generate
+	cd sql && go tool sqlc generate

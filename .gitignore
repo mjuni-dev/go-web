@@ -12,7 +12,9 @@
 !/.gitignore
 !/Makefile
 !/.air.toml
-!/web/public/**/*
+!sql/**/*
+
+!web/public/**/*
 
 !*.go
 !*.templ
